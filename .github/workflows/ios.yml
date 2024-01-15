@@ -15,6 +15,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    - name: Brew Install
+      run: brew install ninja
     - name: Build
       run: sh ./ios.sh
     - name: Archive
