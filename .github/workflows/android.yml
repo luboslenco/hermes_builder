@@ -13,6 +13,9 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    environment:
+      HERMES_WS_DIR: ./
+
     steps:
     - uses: actions/checkout@v3
     - name: Apt Install
