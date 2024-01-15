@@ -1,0 +1,28 @@
+name: Windows (x64-debug)
+
+on:
+  push:
+    branches:
+    - main
+  pull_request:
+    branches:
+    - main
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build
+      shell: cmd
+      run: call ./windows_debug.bat
+    - name: Archive
+      uses: actions/upload-artifact@v3
+      with:
+        name: hermes
+        path: |
+          ./build/lib/hermesvm_a.lib
+          ./build/jsi/jsi.lib
+          ./build/bin/shermes.exe
